@@ -1,2 +1,2 @@
 # templatest-things
-some template test!
+*some template test!*
