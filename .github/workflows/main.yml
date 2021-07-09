@@ -31,7 +31,8 @@ jobs:
       - name: Curiosity is there
         shell: bash
         run: |
-          ls -altR **/*.*
+          shopt -s globstar
+          ls
           
       - name: Azure CLI Action
         uses: Azure/cli@1.0.4
