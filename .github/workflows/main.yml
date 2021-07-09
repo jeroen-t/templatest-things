@@ -28,13 +28,17 @@ jobs:
 #         uses: aliencube/bicep-build-actions@v0.3
 #         with:
 #           files: '**/*.bicep'
+      - name: Curiosity is there
+        shell: bash
+        run: |
+          ls -altR **/*.*
           
       - name: Azure CLI Action
         uses: Azure/cli@1.0.4
         with:
           # Specify the script here
           inlineScript: |
-            az bicep build --file '/template/azure-sql/azure-sql-server/main.bicep' --outfile ./main.json
+            az bicep build --file 'template/azure-sql/azure-sql-server/main.bicep' --outfile ./main.json
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           # azcliversion: # optional, default is latest     
 
