@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.4.63.48766",
+      "templateHash": "8254437099829565216"
+    }
+  },
+  "functions": [],
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "placeholder",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.4.63.48766",
+              "templateHash": "11729114570108571047"
+            }
+          },
+          "functions": [],
+          "resources": [
+            {
+              "type": "Microsoft.Sql/servers",
+              "apiVersion": "2021-02-01-preview",
+              "name": "string",
+              "location": "[resourceGroup().location]",
+              "tags": {},
+              "identity": {
+                "type": "None"
+              },
+              "properties": {
+                "administratorLogin": "string",
+                "administratorLoginPassword": "string",
+                "version": "string",
+                "minimalTlsVersion": "1.2",
+                "publicNetworkAccess": "Disabled",
+                "keyId": "string",
+                "administrators": {
+                  "administratorType": "ActiveDirectory",
+                  "principalType": "Group",
+                  "login": "string",
+                  "sid": "string",
+                  "tenantId": "string",
+                  "azureADOnlyAuthentication": true
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
