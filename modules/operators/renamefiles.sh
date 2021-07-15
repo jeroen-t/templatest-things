@@ -7,7 +7,7 @@ function renamefiles () {
     REPLACE="$3"
 
     # echo $#
-    if test $# -lt 2; then
+    if test $# -lt 3; then
         echo "usage: `basename $0` <working_directory> <to_replace> <replace_value>"
     fi
 
