@@ -33,10 +33,7 @@ param publicNetworkAccess string
   'SystemAssigned'
   'UserAssigned'
 ])
-param identity string
-
-@description('A CMK URI of the key to use for encryption.')
-param keyId string
+param identity string = 'None'
 
 @description('QA or PRD tag')
 @allowed([
@@ -45,6 +42,7 @@ param keyId string
 ])
 param Environment string = 'QA'
 
+param administratorsEnabled bool = false
 
 @description('Principal Type of the sever administrator')
 @allowed([
@@ -52,19 +50,19 @@ param Environment string = 'QA'
   'Group'
   'Application'
 ])
-param principalType string
+param principalType string = 'Group'
 
 @description('Login name of the server administrator.')
-param login string
+param login string = 'SQL ADMIN GROUP'
 
 @description('SID (object ID) of the server administrator. - globally unique identifier')
-param sid string
+param sid string = 'SID SQL ADMIN GROUP'
 
 @description('Tenant ID of the administrator. - globally unique identifier')
-param tenantid string
+param tenantid string = 'tenant id function'
 
 @description('Azure Active Directory only Authentication enabled.')
-param azureADOnlyAuthentication bool
+param azureADOnlyAuthentication bool = false
 
 var tagValues = {
   Environment: Environment
@@ -91,7 +89,6 @@ resource sqlServer 'Microsoft.Sql/servers@2021-02-01-preview' = {
     administratorLoginPassword: administratorLoginPassword
     minimalTlsVersion: minimalTlsVersion
     publicNetworkAccess: publicNetworkAccess
-    keyId: keyId
-    administrators: ((!empty(administrators)) ? administrators : json('null'))
+    administrators: (administratorsEnabled ? administrators : json('null'))
   }
 }
