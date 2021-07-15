@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.4.63.48766",
+      "templateHash": "3429737547112790870"
+    }
+  },
+  "parameters": {
+    "initTrue": {
+      "type": "bool",
+      "defaultValue": true
+    },
+    "initFalse": {
+      "type": "bool",
+      "defaultValue": false
+    }
+  },
+  "functions": [],
+  "resources": [],
+  "outputs": {
+    "startedTrue": {
+      "type": "bool",
+      "value": "[not(parameters('initTrue'))]"
+    },
+    "startedFalse": {
+      "type": "bool",
+      "value": "[not(parameters('initFalse'))]"
+    }
+  }
+}

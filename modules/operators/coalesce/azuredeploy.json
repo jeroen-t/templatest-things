@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.4.63.48766",
+      "templateHash": "12419890819496881411"
+    }
+  },
+  "parameters": {
+    "myObject": {
+      "type": "object",
+      "defaultValue": {
+        "isnull1": null,
+        "isnull2": null,
+        "string": "demoString",
+        "emptystr": "",
+        "integer": 10
+      }
+    }
+  },
+  "functions": [],
+  "resources": [],
+  "outputs": {
+    "nonNullStr": {
+      "type": "string",
+      "value": "[coalesce(coalesce(parameters('myObject').isnull1, parameters('myObject').string), parameters('myObject').isnull2)]"
+    },
+    "nonNullInt": {
+      "type": "int",
+      "value": "[coalesce(coalesce(parameters('myObject').isnull1, parameters('myObject').integer), parameters('myObject').isnull2)]"
+    },
+    "nonNullEmpty": {
+      "type": "string",
+      "value": "[coalesce(coalesce(coalesce(parameters('myObject').isnull1, parameters('myObject').emptystr), parameters('myObject').string), parameters('myObject').isnull2)]"
+    }
+  }
+}

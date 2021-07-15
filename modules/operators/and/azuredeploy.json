@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.4.63.48766",
+      "templateHash": "2153455568229178704"
+    }
+  },
+  "parameters": {
+    "operand1": {
+      "type": "bool",
+      "defaultValue": true
+    },
+    "operand2": {
+      "type": "bool",
+      "defaultValue": true
+    },
+    "operand3": {
+      "type": "bool",
+      "defaultValue": false
+    }
+  },
+  "functions": [],
+  "resources": [],
+  "outputs": {
+    "andResultParm": {
+      "type": "bool",
+      "value": "[and(parameters('operand1'), parameters('operand2'))]"
+    },
+    "andResultExp": {
+      "type": "bool",
+      "value": "[and(bool(greaterOrEquals(10, 10)), bool(greater(5, 2)))]"
+    },
+    "andresultParmf": {
+      "type": "bool",
+      "value": "[and(parameters('operand1'), parameters('operand3'))]"
+    }
+  }
+}
